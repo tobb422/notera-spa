@@ -22,16 +22,23 @@
     "noImplicitAny": true,
     "noUnusedLocals": false,
     "typeRoots": [
-      "node_modules/@types",
-      "src/types/declarations"
+      "node_modules/@types"
     ],
-    "baseUrl": "./src",
-    "allowJs": true
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "parts/*": [
+        "components/parts/*"
+      ]
+    }
   },
-  "include": [
-    "src"
-  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "next.config.js"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
   ]
 }

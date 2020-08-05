@@ -1,6 +1,4 @@
 import React from 'react';
-// import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-// import firebase from 'firebase';
 
 function Home() {
   return (
@@ -11,7 +9,6 @@ function Home() {
           color: red;
         }
       `}</style>
-      {/*<StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>*/}
     </div>
   )
 }
