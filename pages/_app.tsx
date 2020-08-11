@@ -1,6 +1,9 @@
 import React from 'react';
 import App, { AppContext } from 'next/app';
 
+// contexts
+import { AuthContext } from 'contexts/auth';
+
 // ISSUE: https://github.com/vercel/styled-jsx/issues/560
 // eslint-disable-next-line @typescript-eslint/no-var-requires,@typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-assignment,no-underscore-dangle
 const _JSXStyle = require('styled-jsx/style').default;
@@ -20,10 +23,13 @@ class MyApp extends App {
   }
 
   render() {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { Component, pageProps } = this.props;
 
-    return <Component {...pageProps} />;
+    return (
+      <AuthContext service={'firebase'}>
+        <Component {...pageProps} />
+      </AuthContext>
+    );
   }
 }
 

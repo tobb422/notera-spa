@@ -1,41 +1,19 @@
-import React from 'react';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase';
+import React, { useContext } from 'react';
+import { AuthStore } from 'contexts/auth/provider';
+import { FireBaseAuth } from 'parts/auth/services/firebase-auth';
 
 export const Auth = () => {
-  const config = {
-    apiKey: process.env.API_KEY || '',
-    authDomain: process.env.AUTH_DOMAIN || '',
-    projectId: process.env.PROJECT_ID || '',
+  const { isLogin, service } = useContext(AuthStore);
+
+  const authComponent = () => {
+    switch (service) {
+      case 'firebase':
+        return <FireBaseAuth />;
+      default:
+        return <>No Auth Component</>;
+    }
   };
 
-  if (!firebase.apps.length) {
-    firebase.initializeApp(config);
-  } else {
-    firebase.app();
-  }
-
-  const uiConfig = {
-    signInSuccessUrl: '/',
-    signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
-    callbacks: {
-      signInSuccessWithAuthResult: (res: any) => {
-        // eslint-disable-next-line no-console
-        console.log(res);
-
-        const currentUser = firebase.auth().currentUser;
-        if (currentUser) {
-          const _ = currentUser.getIdToken(true).then((token) => {
-            // eslint-disable-next-line no-console
-            console.log(token);
-          });
-        }
-        return true;
-      },
-    },
-  };
-
-  return (
-    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-  );
+  return isLogin() ? <div>ログイン済み</div> : authComponent();
 };
+

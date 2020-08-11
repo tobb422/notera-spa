@@ -27,8 +27,17 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
+      "contexts/*": [
+        "contexts/*"
+      ],
       "parts/*": [
         "components/parts/*"
+      ],
+      "services/*": [
+        "services/*"
+      ],
+      "shared/*": [
+        "shared/*"
       ]
     }
   },

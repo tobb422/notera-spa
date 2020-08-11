@@ -59,6 +59,9 @@ module.exports = {
     'react/display-name': 'off',
     'react-hooks/exhaustive-deps': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/array-type': [
       'error',
       {
