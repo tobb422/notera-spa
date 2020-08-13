@@ -1,25 +1,23 @@
-import Cookies from 'universal-cookie';
 import { User } from 'services/firebase';
+import { isClient } from 'shared/utils';
 
 export class Session {
-  private static SessionName = '_notera_session';
   private static Key = 'currentUser';
 
   static getUser(): User | null {
-    const session = this.newCookie().get(this.SessionName);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-return
-    return session ? (session[this.Key] as User) : null;
+    if (isClient()) {
+      const item = localStorage.getItem(this.Key);
+      return item ? (JSON.parse(item) as User) : null;
+    }
+
+    return null;
   }
 
   static setUser(user: User | null) {
-    this.newCookie().set(this.SessionName, { [this.Key]: user }, { path: '/' });
+    localStorage.setItem(this.Key, JSON.stringify(user));
   }
 
   static removeUser() {
-    this.newCookie().remove(this.SessionName, { path: '/' });
-  }
-
-  private static newCookie() {
-    return new Cookies();
+    localStorage.clear();
   }
 }

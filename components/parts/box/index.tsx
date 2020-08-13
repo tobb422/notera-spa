@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { FlexColumn } from 'styles/flex-column';
+import { FlexColumn } from 'styles/flex';
 
 export const Box: FC = ({ children }) => {
   return (

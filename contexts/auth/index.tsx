@@ -36,6 +36,7 @@ export const AuthContext: FC<{ service: AuthService }> = ({
   return (
     <AuthStore.Provider
       value={{
+        user,
         isLogIn,
         service,
       }}

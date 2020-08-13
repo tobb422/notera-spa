@@ -1,10 +1,14 @@
 import React from 'react';
 
-export const Icon = () => {
+export const Icon = ({ height }: { height?: string }) => {
   return (
     <>
       <img src="/images/logo_g.png" alt="logo" />
-      <style jsx>{'img { height: 48px }'}</style>
+      <style jsx>{`
+        img {
+          height: ${height ? height : '48px'};
+        }
+      `}</style>
     </>
   );
 };

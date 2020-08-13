@@ -30,6 +30,9 @@
       "contexts/*": [
         "contexts/*"
       ],
+      "layouts/*": [
+        "components/layouts/*"
+      ],
       "pages/*": [
         "components/pages/*"
       ],

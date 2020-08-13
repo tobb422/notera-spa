@@ -7,9 +7,9 @@ import { Auth as PAuth } from 'parts/auth';
 import { Box } from 'parts/box';
 import { Icon } from 'parts/icon';
 import { Margin } from 'styles/margin';
-import { FlexColumn } from 'styles/flex-column';
+import { FlexColumn } from 'styles/flex';
 import { LargeText, NormalText } from 'styles/text';
-import { TextLink } from 'parts/text-link';
+import { TextLink } from 'parts/link';
 
 const LOG_IN_PATH = '/log-in';
 const SIGN_UP_PATH = '/sign-up';

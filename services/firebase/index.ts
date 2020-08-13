@@ -1,4 +1,6 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+// eslint-disable-next-line import/no-unassigned-import
+import 'firebase/auth';
 
 const config = {
   apiKey: process.env.API_KEY || '',
@@ -15,20 +17,3 @@ export const providers: string[] = [
 ];
 
 export type User = firebase.User;
-
-export const fetchToken = () => {
-  return firebase.auth().onAuthStateChanged(
-    (user) => {
-      if (user) {
-        return user.getIdToken(true).then((token) => {
-          // eslint-disable-next-line no-console
-          console.log(token);
-        });
-      }
-    },
-    (e) => {
-      // eslint-disable-next-line no-console
-      console.log(e);
-    }
-  );
-};

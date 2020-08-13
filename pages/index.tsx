@@ -1,20 +1,14 @@
-import React from 'react';
-import { HeadTag } from 'parts/head-tag';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-function Home() {
-  return (
-    <>
-      <HeadTag />
-      <div>
-        <h1>Welcome to Next.js!</h1>
-        <style jsx>{`
-          h1 {
-            color: red;
-          }
-        `}</style>
-      </div>
-    </>
-  );
-}
+const Home = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    void router.push('/stocks');
+  });
+
+  return <></>;
+};
 
 export default Home;
