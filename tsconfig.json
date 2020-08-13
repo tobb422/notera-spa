@@ -30,8 +30,14 @@
       "contexts/*": [
         "contexts/*"
       ],
+      "pages/*": [
+        "components/pages/*"
+      ],
       "parts/*": [
         "components/parts/*"
+      ],
+      "styles/*": [
+        "components/styles/*"
       ],
       "services/*": [
         "services/*"

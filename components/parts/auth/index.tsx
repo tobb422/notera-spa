@@ -1,9 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthStore } from 'contexts/auth/provider';
 import { FireBaseAuth } from 'parts/auth/services/firebase-auth';
 
 export const Auth = () => {
   const { isLogin, service } = useContext(AuthStore);
+
+  // useEffect(() => {
+  //   if (isLogin()) {
+  //     window.location.href = '/';
+  //   }
+  // });
 
   const authComponent = () => {
     switch (service) {
@@ -14,6 +20,5 @@ export const Auth = () => {
     }
   };
 
-  return isLogin() ? <div>ログイン済み</div> : authComponent();
+  return authComponent();
 };
-

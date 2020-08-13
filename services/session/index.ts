@@ -1,5 +1,5 @@
 import Cookies from 'universal-cookie';
-import { User } from 'firebase';
+import { User } from 'services/firebase';
 
 export class Session {
   private static SessionName = '_notera_session';
@@ -11,7 +11,7 @@ export class Session {
     return session ? (session[this.Key] as User) : null;
   }
 
-  static setUser(user: User) {
+  static setUser(user: User | null) {
     this.newCookie().set(this.SessionName, { [this.Key]: user }, { path: '/' });
   }
 

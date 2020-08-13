@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import App, { AppContext } from 'next/app';
 
 // contexts
@@ -10,6 +10,11 @@ const _JSXStyle = require('styled-jsx/style').default;
 if (typeof global !== 'undefined') {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   Object.assign(global, { _JSXStyle });
+}
+
+declare module 'react' {
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  type FCX<P = {}> = FC<P & { className?: string }>;
 }
 
 class MyApp extends App {
