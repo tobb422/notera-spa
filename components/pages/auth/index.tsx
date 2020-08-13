@@ -27,11 +27,11 @@ export const Auth = () => {
     ? 'Don\'t have an account? → ' // prettier-ignore
     : 'Already have an account? → ';
 
-  // useEffect(() => {
-  //   if (isLogIn()) {
-  //     window.location.href = ROOT_PATH;
-  //   }
-  // });
+  useEffect(() => {
+    if (isLogIn()) {
+      window.location.href = ROOT_PATH;
+    }
+  });
 
   return (
     <Margin top={'48px'} bottom={'48px'} right={'auto'} left={'auto'}>
