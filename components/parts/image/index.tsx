@@ -16,6 +16,7 @@ export const Image = ({
       <img src={src} alt={alt} />
       <style jsx>{`
         img {
+          display: inline-block;
           height: ${size};
           width: ${size};
           vertical-align: middle;

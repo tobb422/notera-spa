@@ -62,6 +62,7 @@ module.exports = {
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/array-type': [
       'error',
       {

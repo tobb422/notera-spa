@@ -30,7 +30,10 @@ export const FlexColumnStart: FC = ({ children }) => {
   );
 };
 
-export const FlexRow: FC = ({ children }) => {
+export const FlexRow: FC<{ justifyContent?: string }> = ({
+  children,
+  justifyContent = 'center',
+}) => {
   return (
     <>
       <div className="flex-row">{children}</div>
@@ -38,7 +41,7 @@ export const FlexRow: FC = ({ children }) => {
         .flex-row {
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: ${justifyContent};
         }
       `}</style>
     </>
